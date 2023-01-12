@@ -1,0 +1,121 @@
+начало
+перед циклом
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 384, in _make_request
+    six.raise_from(e, None)
+  File "<string>", line 2, in raise_from
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 380, in _make_request
+    httplib_response = conn.getresponse()
+  File "/usr/lib/python3.7/http/client.py", line 1321, in getresponse
+    timeout=timeout
+    response.begin()
+  File "/usr/lib/python3.7/http/client.py", line 296, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.7/http/client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.7/site-packages/urllib3/contrib/pyopenssl.py", line 298, in recv_into
+    raise timeout('The read operation timed out')
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/lib/python3.7/site-packages/urllib3/util/retry.py", line 367, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "/usr/lib/python3.7/site-packages/urllib3/packages/six.py", line 686, in reraise
+    raise value
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 306, in _raise_timeout
+    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='lp.vk.com', port=443): Read timed out. (read timeout=35)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/BotForNoNameGroup/Code/VkBot.py", line 584, in main
+    for event in longpoll.listen():
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/bot_longpoll.py", line 274, in listen
+    for event in self.check():
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/bot_longpoll.py", line 246, in check
+    timeout=self.wait + 10
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 525, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/adapters.py", line 526, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='lp.vk.com', port=443): Read timed out. (read timeout=35)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 594, in urlopen
+    self._prepare_proxy(conn)
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 815, in _prepare_proxy
+    conn.connect()
+  File "/usr/lib/python3.7/site-packages/urllib3/connection.py", line 324, in connect
+    self._tunnel()
+  File "/usr/lib/python3.7/http/client.py", line 906, in _tunnel
+    (version, code, message) = response._read_status()
+  File "/usr/lib/python3.7/http/client.py", line 257, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/site-packages/requests/adapters.py", line 445, in send
+    timeout=timeout
+  File "/usr/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='lp.vk.com', port=443): Max retries exceeded with url: /wh185153508?act=a_check&key=fef607ae9bb3b5b50d239c937f77d54c5508990f&ts=293&wait=25 (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/BotForNoNameGroup/Code/VkBot.py", line 584, in main
+    for event in longpoll.listen():
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/bot_longpoll.py", line 274, in listen
+    for event in self.check():
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/bot_longpoll.py", line 246, in check
+    timeout=self.wait + 10
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 525, in get
+    return self.request('GET', url, **kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 512, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/sessions.py", line 622, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/lib/python3.7/site-packages/requests/adapters.py", line 507, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='lp.vk.com', port=443): Max retries exceeded with url: /wh185153508?act=a_check&key=fef607ae9bb3b5b50d239c937f77d54c5508990f&ts=293&wait=25 (Caused by ProxyError('Cannot connect to proxy.', timeout('timed out')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/BotForNoNameGroup/Code/VkBot.py", line 627, in <module>
+    main()
+  File "/home/BotForNoNameGroup/Code/VkBot.py", line 600, in main
+    main()
+  File "/home/BotForNoNameGroup/Code/VkBot.py", line 621, in main
+    random_id=get_random_id()
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/vk_api.py", line 671, in __call__
+    return self._vk.method(self._method, kwargs)
+  File "/home/BotForNoNameGroup/.local/lib/python3.7/site-packages/vk_api/vk_api.py", line 636, in method
+    raise error
+vk_api.exceptions.ApiError: [914] Message is too long
+>>>
